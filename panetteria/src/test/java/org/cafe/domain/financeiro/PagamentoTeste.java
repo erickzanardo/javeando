@@ -56,14 +56,14 @@ public class PagamentoTeste {
         produto.setTipoProduto(TipoProduto.CAFETERIA);
         pedido.addItem(produto);
 
-        PagamentoNoDinheiro pagamentoNoDinheiro = new PagamentoNoDinheiro(programador, pedido);
+        PagamentoNoDinheiro pagamentoNoDinheiro = new PagamentoNoDinheiro();
         // cafe(5) + bolo(6) = 11 > programador(10)
-        boolean processo = pagamentoNoDinheiro.processar();
+        boolean processo = pagamentoNoDinheiro.processar(programador, pedido);
         assertFalse(processo);
 
         pedido.itens().get(0).setPreco(1);
         // cafe(1) + bolo(6) = 7 < programador(10)
-        processo = pagamentoNoDinheiro.processar();
+        processo = pagamentoNoDinheiro.processar(programador, pedido);
         assertTrue(processo);
 
         assertEquals(new Double(3), new Double(programador.getDinheiro()));
@@ -85,14 +85,14 @@ public class PagamentoTeste {
         produto.setTipoProduto(TipoProduto.SALGADO);
         pedido.addItem(produto);
 
-        CartaoDeDebito cartaoDeDebito = new CartaoDeDebito(arquiteto, pedido);
+        CartaoDeDebito cartaoDeDebito = new CartaoDeDebito();
         // cafe(5) + quiche(6) = 11 > conta_arquiteto(10)
-        boolean processo = cartaoDeDebito.processar();
+        boolean processo = cartaoDeDebito.processar(arquiteto, pedido);
         assertFalse(processo);
 
         pedido.itens().get(0).setPreco(1);
         // cafe(1) + bolo(6) = 7 < conta_arquiteto(10)
-        processo = cartaoDeDebito.processar();
+        processo = cartaoDeDebito.processar(arquiteto, pedido);
         assertTrue(processo);
 
         Conta conta = Banco.instance().getConta(arquiteto.getNumeroDaConta());
@@ -116,14 +116,14 @@ public class PagamentoTeste {
         produto.setTipoProduto(TipoProduto.NATURAL);
         pedido.addItem(produto);
 
-        CartaoDeCredito cartaoDeCredito = new CartaoDeCredito(coordenador, pedido);
+        CartaoDeCredito cartaoDeCredito = new CartaoDeCredito();
         // suco(5) + lanche(6) = 11 > credito_coordenador(10)
-        boolean processo = cartaoDeCredito.processar();
+        boolean processo = cartaoDeCredito.processar(coordenador, pedido);
         assertFalse(processo);
 
         pedido.itens().get(0).setPreco(1);
         // suco(1) + lanche(6) = 7 < credito_coordenador(10)
-        processo = cartaoDeCredito.processar();
+        processo = cartaoDeCredito.processar(coordenador, pedido);
         assertTrue(processo);
 
         Conta conta = Banco.instance().getConta(coordenador.getNumeroDaConta());
