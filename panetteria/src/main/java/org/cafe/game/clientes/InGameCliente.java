@@ -58,6 +58,7 @@ public class InGameCliente {
         if (indo) {
             x += speed * delta;
             if (x >= POSICAO_CAIXA) {
+                panetteria.atendimentoCompleto();
                 // Escolhendo o pedido
                 Pedido pedido = cliente.escolherPedido(panetteria.getMenu());
 

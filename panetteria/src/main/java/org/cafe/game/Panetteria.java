@@ -18,6 +18,8 @@ public class Panetteria implements Game {
 
     private List<InGameCliente> clientes = new ArrayList<>();
     private List<InGameCliente> clientesASeremRemovidos = new ArrayList<>();
+    private Francesco francesco;
+
     private int criarClienteCounter;
 
     private Menu menu;
@@ -26,6 +28,7 @@ public class Panetteria implements Game {
     @Override
     public void init(JavaGraphics graphics) {
         Assets.init();
+        francesco = new Francesco();
     }
 
     @Override
@@ -34,6 +37,7 @@ public class Panetteria implements Game {
 
     @Override
     public void update(long delta) {
+        francesco.update(delta);
         if (clientesASeremRemovidos.size() > 0) {
             clientes.removeAll(clientesASeremRemovidos);
             clientesASeremRemovidos.clear();
@@ -61,11 +65,14 @@ public class Panetteria implements Game {
     @Override
     public void render(JavaGraphics graphics) {
         // Background
+        graphics.setColor(0xe5e5e5);
         graphics.fillRect(0, 0, 800, 600);
 
         for (int i = clientes.size() - 1; i >= 0; i--) {
             clientes.get(i).draw(graphics);
         }
+
+        francesco.draw(graphics);
 
         messageBoard.draw(graphics);
     }
@@ -101,5 +108,9 @@ public class Panetteria implements Game {
 
     public void removerCliente(InGameCliente cliente) {
         clientesASeremRemovidos.add(cliente);
+    }
+
+    public void atendimentoCompleto() {
+        francesco.animate();
     }
 }

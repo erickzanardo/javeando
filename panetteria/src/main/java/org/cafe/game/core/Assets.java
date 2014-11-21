@@ -9,6 +9,7 @@ public class Assets {
     private JavaSpriteSheet programadorSpriteLeft;
     private JavaSpriteSheet arquitetoSpriteLeft;
     private JavaSpriteSheet coordenadorSpriteLeft;
+    private JavaSpriteSheet francesco;
 
     private Assets() {
         programadorSpriteRight = JavaAssetLoader.instance().loadSpriteSheet("programador.png", 2, 1, 5);
@@ -18,6 +19,8 @@ public class Assets {
         programadorSpriteLeft = JavaAssetLoader.instance().loadSpriteSheet("programador_left.png", 2, 1, 5);
         arquitetoSpriteLeft = JavaAssetLoader.instance().loadSpriteSheet("arquiteto_left.png", 2, 1, 5);
         coordenadorSpriteLeft = JavaAssetLoader.instance().loadSpriteSheet("coordenador_left.png", 2, 1, 5);
+
+        francesco = JavaAssetLoader.instance().loadSpriteSheet("francesco.png", 3, 1, 5);
 
     }
 
@@ -55,6 +58,10 @@ public class Assets {
 
     public JavaSpriteSheet getCoordenadorSpriteLeft() {
         return coordenadorSpriteLeft.copy();
+    }
+
+    public JavaSpriteSheet getFrancesco() {
+        return francesco.copy();
     }
 
 }
