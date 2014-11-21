@@ -6,13 +6,16 @@ import org.cafe.domain.clientes.Programador;
 import org.cafe.domain.financeiro.Pagamento;
 import org.cafe.domain.produto.Pedido;
 import org.cafe.game.Panetteria;
+import org.cafe.game.core.Assets;
 import org.cafe.game.core.JavaGraphics;
+import org.cafe.game.core.JavaSpriteSheet;
 
 public class InGameCliente {
     private Cliente cliente;
     private float x = 0, y = 150;
     private Panetteria panetteria;
     private boolean indo = true;
+    private JavaSpriteSheet spriteSheet;
 
     static float speed = (20f / 1000f); // 10 pixels por segundo
 
@@ -22,22 +25,36 @@ public class InGameCliente {
     public InGameCliente(Cliente cliente, Panetteria panetteria) {
         this.cliente = cliente;
         this.panetteria = panetteria;
+
+        atualizarSprite();
+    }
+
+    private void atualizarSprite() {
+        if (indo) {
+            if (cliente instanceof Programador) {
+                spriteSheet = Assets.instance().getProgramadorSpriteRight();
+            } else if (cliente instanceof Arquiteto) {
+                spriteSheet = Assets.instance().getArquitetoSpriteRight();
+            } else {
+                spriteSheet = Assets.instance().getCoordenadorSpriteRight();
+            }
+        } else {
+            if (cliente instanceof Programador) {
+                spriteSheet = Assets.instance().getProgramadorSpriteLeft();
+            } else if (cliente instanceof Arquiteto) {
+                spriteSheet = Assets.instance().getArquitetoSpriteLeft();
+            } else {
+                spriteSheet = Assets.instance().getCoordenadorSpriteLeft();
+            }
+        }
     }
 
     public void draw(JavaGraphics graphics) {
-        // TODO
-        if (cliente instanceof Programador) {
-            graphics.setColor(0xffffff);
-        } else if (cliente instanceof Arquiteto) {
-            graphics.setColor(0x2E07A6);
-        } else {
-            graphics.setColor(0xE01F56);
-        }
-
-        graphics.fillRect(x, y, 50, 100);
+        graphics.drawImage(spriteSheet.currentFrame(), x, y);
     }
 
     public void update(long delta) {
+        spriteSheet.update(delta);
         if (indo) {
             x += speed * delta;
             if (x >= POSICAO_CAIXA) {
@@ -57,6 +74,7 @@ public class InGameCliente {
                 }
 
                 indo = false;
+                atualizarSprite();
             }
         } else {
             if (y <= POSICAO_DE_VOLTA) {

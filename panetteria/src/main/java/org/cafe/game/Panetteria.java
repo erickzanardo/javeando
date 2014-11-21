@@ -7,6 +7,7 @@ import org.cafe.domain.clientes.Cliente;
 import org.cafe.domain.produto.Menu;
 import org.cafe.game.clientes.ClienteFactory;
 import org.cafe.game.clientes.InGameCliente;
+import org.cafe.game.core.Assets;
 import org.cafe.game.core.Game;
 import org.cafe.game.core.JavaGameLoop;
 import org.cafe.game.core.JavaGraphics;
@@ -24,12 +25,11 @@ public class Panetteria implements Game {
 
     @Override
     public void init(JavaGraphics graphics) {
-
+        Assets.init();
     }
 
     @Override
     public void destroy() {
-
     }
 
     @Override
@@ -66,7 +66,7 @@ public class Panetteria implements Game {
         for (int i = clientes.size() - 1; i >= 0; i--) {
             clientes.get(i).draw(graphics);
         }
-        
+
         messageBoard.draw(graphics);
     }
 

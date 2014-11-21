@@ -50,10 +50,6 @@ public class JavaGameLoop implements WindowListener {
     public void run() {
         active = true;
 
-        // Asset Manager
-//        AssetLoader loader = new JavaAssetLoader();
-//        AssetManager.setLoader(loader);
-
         // Game Init
         bufferStrategy = mainWindow.getBufferStrategy();
 
