@@ -1,0 +1,9 @@
+
+
+Clientes
+  Programadores compram um produto da cafeteria e um doce, pagam com dinheiro e as escolhas são sempre as mais baratas de seus tipos
+  Arquitetos compram um produto da cafeteria e um salgado, pagam no débito e as escolhas são sempre as mais caras de seus tipos
+  Coordenadores compram dois produtos naturais e pagam no crédito
+
+Pedido
+  A lista de pedidos deve sempre ser ordenada alfabeticamente pelo nome do produto
