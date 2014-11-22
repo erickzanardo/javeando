@@ -65,7 +65,7 @@ public class MenuTeste {
 
     @Test
     public void testeListarProdutos() {
-        assertEquals(7, menu.listarProdutos().size());
+        assertEquals(8, menu.listarProdutos().size());
 
         List<Produto> produtosPorTipo = menu.listarProdutosPorTipo(TipoProduto.CAFETERIA);
         assertEquals(2, produtosPorTipo.size());
