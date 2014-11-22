@@ -74,8 +74,8 @@ public class MenuTeste {
 
         produtosPorTipo = menu.listarProdutosPorTipo(TipoProduto.SALGADO);
         assertEquals(2, produtosPorTipo.size());
-        assertEquals("Quiche", produtosPorTipo.get(0).getNome());
-        assertEquals("Pao na chapa", produtosPorTipo.get(1).getNome());
+        assertEquals("Pao na chapa", produtosPorTipo.get(0).getNome());
+        assertEquals("Quiche", produtosPorTipo.get(1).getNome());
 
         produtosPorTipo = menu.listarProdutosPorTipo(TipoProduto.DOCE);
         assertEquals(2, produtosPorTipo.size());
