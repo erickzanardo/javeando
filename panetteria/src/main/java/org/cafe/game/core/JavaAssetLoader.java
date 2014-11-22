@@ -3,7 +3,6 @@ package org.cafe.game.core;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 
 import javax.imageio.ImageIO;
 
@@ -23,9 +22,9 @@ public class JavaAssetLoader {
     }
 
     public JavaImage loadImage(String src) {
-        URL resource = getClass().getResource(src);
+        InputStream is = JavaAssetLoader.class.getClassLoader().getResourceAsStream(src);
         try {
-            BufferedImage read = ImageIO.read(resource);
+            BufferedImage read = ImageIO.read(is);
             return new JavaImage(read);
         } catch (IOException e) {
             throw new RuntimeException(e);

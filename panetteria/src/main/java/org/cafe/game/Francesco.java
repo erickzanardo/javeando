@@ -20,7 +20,7 @@ public class Francesco {
     }
 
     public void draw(JavaGraphics g) {
-        g.drawImage(spriteSheet.currentFrame(), 600, 150);
+        g.drawImage(spriteSheet.currentFrame(), 615, 250);
     }
 
     public void animate() {

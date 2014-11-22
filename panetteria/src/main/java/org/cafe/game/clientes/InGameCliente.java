@@ -12,10 +12,11 @@ import org.cafe.game.core.JavaSpriteSheet;
 
 public class InGameCliente {
     private Cliente cliente;
-    private float x = 0, y = 150;
+    private float x = 0, y = 250;
     private Panetteria panetteria;
     private boolean indo = true;
     private JavaSpriteSheet spriteSheet;
+    private JavaSpriteSheet state;
 
     static float speed = (20f / 1000f); // 10 pixels por segundo
 
@@ -51,10 +52,16 @@ public class InGameCliente {
 
     public void draw(JavaGraphics graphics) {
         graphics.drawImage(spriteSheet.currentFrame(), x, y);
+        if (state != null) {
+            graphics.drawImage(state.currentFrame(), x - 10, y - 40);
+        }
     }
 
     public void update(long delta) {
         spriteSheet.update(delta);
+        if (state != null) {
+            state.update(delta);
+        }
         if (indo) {
             x += speed * delta;
             if (x >= POSICAO_CAIXA) {
@@ -64,13 +71,15 @@ public class InGameCliente {
 
                 if (pedido == null) {
                     panetteria.logMessage(cliente.getNome() + " nao encontrou nenhum produto disponivel no menu! ");
+                    state = Assets.instance().getSad();
                 } else {
                     Pagamento pagamento = cliente.escolherTipoDePagamento();
                     boolean sucesso = pagamento.processar(cliente, pedido);
                     if (sucesso) {
-
+                        state = Assets.instance().getHappy();
                     } else {
                         panetteria.logMessage(cliente.getNome() + " nao conseguiu processar o pagamento! ");
+                        state = Assets.instance().getSad();
                     }
                 }
 

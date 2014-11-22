@@ -11,6 +11,7 @@ import org.cafe.game.core.Assets;
 import org.cafe.game.core.Game;
 import org.cafe.game.core.JavaGameLoop;
 import org.cafe.game.core.JavaGraphics;
+import org.cafe.game.core.JavaImage;
 
 public class Panetteria implements Game {
 
@@ -25,10 +26,13 @@ public class Panetteria implements Game {
     private Menu menu;
     private MessageBoard messageBoard = new MessageBoard();
 
+    private JavaImage background;
+
     @Override
     public void init(JavaGraphics graphics) {
         Assets.init();
         francesco = new Francesco();
+        background = Assets.instance().getBackground();
     }
 
     @Override
@@ -65,8 +69,7 @@ public class Panetteria implements Game {
     @Override
     public void render(JavaGraphics graphics) {
         // Background
-        graphics.setColor(0xe5e5e5);
-        graphics.fillRect(0, 0, 800, 600);
+        graphics.drawImage(background, 0, 0);
 
         for (int i = clientes.size() - 1; i >= 0; i--) {
             clientes.get(i).draw(graphics);
