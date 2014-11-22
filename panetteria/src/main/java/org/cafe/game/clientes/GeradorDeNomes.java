@@ -28,6 +28,12 @@ public class GeradorDeNomes {
         names.add("Vito");
         names.add("Vince");
         names.add("Frank");
+        names.add("Hector");
+        names.add("Emmet");
+        names.add("Harry");
+        names.add("Stanley");
+        names.add("Dick");
+        names.add("Leonard");
 
         surnames.add("Black");
         surnames.add("Carter");
@@ -46,6 +52,12 @@ public class GeradorDeNomes {
         surnames.add("Corleone");
         surnames.add("Vercetti");
         surnames.add("Jones");
+        surnames.add("Barbossa");
+        surnames.add("Brown");
+        surnames.add("Lee");
+        surnames.add("Trace");
+        surnames.add("Cooper");
+        surnames.add("Gold");
     }
 
     public static String gerarNome() {
