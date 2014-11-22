@@ -70,7 +70,7 @@ public class InGameCliente {
                 Pedido pedido = cliente.escolherPedido(panetteria.getMenu());
 
                 if (pedido == null) {
-                    panetteria.logMessage(cliente.getNome() + " nao encontrou nenhum produto disponivel no menu! ");
+                    panetteria.logMessage(cliente.getNome() + " did not find any avaiable product on the menu! ");
                     state = Assets.instance().getSad();
                 } else {
                     Pagamento pagamento = cliente.escolherTipoDePagamento();
@@ -78,7 +78,7 @@ public class InGameCliente {
                     if (sucesso) {
                         state = Assets.instance().getHappy();
                     } else {
-                        panetteria.logMessage(cliente.getNome() + " nao conseguiu processar o pagamento! ");
+                        panetteria.logMessage(cliente.getNome() + " could not complete his payment! ");
                         state = Assets.instance().getSad();
                     }
                 }

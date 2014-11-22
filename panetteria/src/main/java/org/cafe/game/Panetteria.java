@@ -3,7 +3,9 @@ package org.cafe.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.cafe.domain.clientes.Arquiteto;
 import org.cafe.domain.clientes.Cliente;
+import org.cafe.domain.clientes.Coordenador;
 import org.cafe.domain.produto.Menu;
 import org.cafe.game.clientes.ClienteFactory;
 import org.cafe.game.clientes.InGameCliente;
@@ -92,8 +94,15 @@ public class Panetteria implements Game {
     }
 
     private void logCliente(Cliente criarClienteAleatorio) {
-        logMessage("Chegou cliente " + criarClienteAleatorio.getNome() + " o "
-                + criarClienteAleatorio.getClass().getSimpleName());
+        
+        String type = "programmer";
+        if (criarClienteAleatorio instanceof Arquiteto) {
+            type = "architect";
+        } else if (criarClienteAleatorio instanceof Coordenador) {
+            type = "coordinator";
+        }
+        
+        logMessage(criarClienteAleatorio.getNome() + " the " + type + " has arrived");
     }
 
     public void logMessage(String message) {
