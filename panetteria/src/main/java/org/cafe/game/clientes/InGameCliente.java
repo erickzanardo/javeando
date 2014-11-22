@@ -77,6 +77,8 @@ public class InGameCliente {
                     boolean sucesso = pagamento.processar(cliente, pedido);
                     if (sucesso) {
                         state = Assets.instance().getHappy();
+                        panetteria.logMessage(cliente.getNome() + " just bought: " + pedido.itens().get(0).getNome()
+                                + " and " + pedido.itens().get(1).getNome());
                     } else {
                         panetteria.logMessage(cliente.getNome() + " could not complete his payment! ");
                         state = Assets.instance().getSad();
