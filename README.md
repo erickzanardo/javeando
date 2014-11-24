@@ -3,6 +3,8 @@ Javeando
 
 Repositório com desafios em Java para treinar ensinamentos na linguagem e se divertir um pouco :D
 
+Importante: Caso seja a primeira vez que está fazendo algum desafio deste repositório, é necessário instalar o motor de jogo antes, para fazer isso basta entrar na pasta GameEngine e executar o comando mvn clean install.
+
 ### Panetteria
 
 Francesco é o dono de uma cafeteria perto de um polo de empresas de desenvolvimento de Software, mas seu estabelecimento está um tanto quanto desorganizado e precisamos ajuda-lo a atender seus clientes.
