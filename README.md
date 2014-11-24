@@ -3,7 +3,7 @@ Javeando
 
 Repositório com desafios em Java para treinar ensinamentos na linguagem e se divertir um pouco :D
 
-Importante: Caso seja a primeira vez que está fazendo algum desafio deste repositório, é necessário instalar o motor de jogo antes, para fazer isso basta entrar na pasta GameEngine e executar o comando mvn clean install.
+**Importante:** Caso seja a primeira vez que está fazendo algum desafio deste repositório, é necessário instalar o motor de jogo antes, para fazer isso basta entrar na pasta GameEngine e executar o comando mvn clean install.
 
 ### Panetteria
 
