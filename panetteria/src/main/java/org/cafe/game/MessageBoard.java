@@ -3,7 +3,7 @@ package org.cafe.game;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cafe.game.core.JavaGraphics;
+import org.javaeando.game.JavaGraphics;
 
 public class MessageBoard {
     private List<String> messages = new ArrayList<String>();

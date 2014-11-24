@@ -9,11 +9,11 @@ import org.cafe.domain.clientes.Coordenador;
 import org.cafe.domain.produto.Menu;
 import org.cafe.game.clientes.ClienteFactory;
 import org.cafe.game.clientes.InGameCliente;
-import org.cafe.game.core.Assets;
-import org.cafe.game.core.Game;
-import org.cafe.game.core.JavaGameLoop;
-import org.cafe.game.core.JavaGraphics;
-import org.cafe.game.core.JavaImage;
+import org.javaeando.game.Assets;
+import org.javaeando.game.Game;
+import org.javaeando.game.JavaGameLoop;
+import org.javaeando.game.JavaGraphics;
+import org.javaeando.game.JavaImage;
 
 public class Panetteria implements Game {
 

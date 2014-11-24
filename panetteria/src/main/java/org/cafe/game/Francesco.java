@@ -1,8 +1,8 @@
 package org.cafe.game;
 
-import org.cafe.game.core.Assets;
-import org.cafe.game.core.JavaGraphics;
-import org.cafe.game.core.JavaSpriteSheet;
+import org.javaeando.game.Assets;
+import org.javaeando.game.JavaGraphics;
+import org.javaeando.game.JavaSpriteSheet;
 
 public class Francesco {
     private JavaSpriteSheet spriteSheet;

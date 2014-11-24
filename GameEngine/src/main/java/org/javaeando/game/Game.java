@@ -1,4 +1,4 @@
-package org.cafe.game.core;
+package org.javaeando.game;
 
 
 public interface Game {

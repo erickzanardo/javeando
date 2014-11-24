@@ -1,4 +1,4 @@
-package org.cafe.game.core;
+package org.javaeando.game;
 
 import java.awt.Graphics2D;
 import java.awt.event.WindowEvent;

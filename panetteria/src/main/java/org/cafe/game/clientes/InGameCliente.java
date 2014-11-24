@@ -6,9 +6,9 @@ import org.cafe.domain.clientes.Programador;
 import org.cafe.domain.financeiro.Pagamento;
 import org.cafe.domain.produto.Pedido;
 import org.cafe.game.Panetteria;
-import org.cafe.game.core.Assets;
-import org.cafe.game.core.JavaGraphics;
-import org.cafe.game.core.JavaSpriteSheet;
+import org.javaeando.game.Assets;
+import org.javaeando.game.JavaGraphics;
+import org.javaeando.game.JavaSpriteSheet;
 
 public class InGameCliente {
     private Cliente cliente;
