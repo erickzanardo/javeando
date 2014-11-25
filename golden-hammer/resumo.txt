@@ -1,0 +1,50 @@
+
+Receitas Produtos
+ * Espada
+   - 3 lingotes de ferro
+ * Escudo de madeira
+   - 1 lingote de ferro
+   - 3 tábuas
+  * Arco curto
+   - 1 tábua
+  * Arco longo
+   - 2 tábuas
+  * Machado
+   - 1 lingote de ferro
+   - 1 tábua
+  * Machado duplo
+   - 2 lingotes de ferro
+   - 1 tábua
+  * Cota de malha
+   - 4 lingotes de ferro
+
+Receitas Materias
+  * Lingote de ferro
+    - 1 Minerio de ferro
+    - 1 Minerio de carvão
+
+Ciclos de ações
+Vendedor
+ - Recebe um pedido do cliente e adiciona ele na lista de pedidos
+   - Espera o pedido estar dsponível e entrega para o cliente
+ 
+Ferreiro
+ - Espera por algum pedido de produto
+  - Faz o pedido dos materiais necessários para realizar o produto
+  - Espera os materiais estarem disponíveis
+  - Vai ao depósito e pega os materiais
+  - Volta para sua estação de trabalho
+  - Forja o produto
+  - Leva o produto para o depósito e retorna para seu posto
+
+  Mineiro
+   - Espera por pedido de lingotes de ferro
+     - Vai para a mina e minera um ferro e um carvão
+     - Volta para sua estação e funde os minérios
+     - Leva o lingote para o depósito
+
+  Lenhador
+   - Espera por algum pedido de tábua
+    - Vai para a floresta e corta recolhe madeira
+    - Volta para sua cabana e corta a madeira em tabuas
+    - Leva a tábua para o deposito
