@@ -14,12 +14,14 @@ import org.hammer.action.Forjar;
 import org.hammer.action.RecolherNoDeposito;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
+import org.hammer.producao.game.GoldenHammer;
 import org.junit.Test;
 
 public class FerreiroTest {
 
     @Test
     public void testAcoes() {
+        GoldenHammer.init();
 
         Ferreiro ferreiro = new Ferreiro(0, 0, "Fulano");
 

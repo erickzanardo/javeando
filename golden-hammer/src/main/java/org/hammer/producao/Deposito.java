@@ -17,4 +17,8 @@ public class Deposito {
         }
         return instance;
     }
+    
+    public boolean contem(Object object) {
+        return itens.contains(object);
+    }
 }

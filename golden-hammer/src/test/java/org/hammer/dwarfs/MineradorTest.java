@@ -13,12 +13,15 @@ import org.hammer.action.FundirMinerios;
 import org.hammer.action.Minerar;
 import org.hammer.producao.Material;
 import org.hammer.producao.Pedidos;
+import org.hammer.producao.game.GoldenHammer;
 import org.junit.Test;
 
 public class MineradorTest {
 
     @Test
     public void testeAcoes() {
+        GoldenHammer.init();
+
         Mineiro mineiro = new Mineiro(0, 0, "Fulano");
 
         List<Acao> retornaAcoes = mineiro.retornaAcoes();
@@ -27,8 +30,8 @@ public class MineradorTest {
         Pedidos.instance().requisitar(Material.LINGOTE_FERRO);
         // - Espera por pedido de lingotes de ferro
         retornaAcoes = mineiro.retornaAcoes();
-        assertEquals(3, retornaAcoes.size());
         assertNotNull(retornaAcoes);
+        assertEquals(3, retornaAcoes.size());
 
         // - Vai para a mina e minera um ferro e um carvão
         assertTrue(retornaAcoes.get(0) instanceof Minerar);

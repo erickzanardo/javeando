@@ -10,12 +10,15 @@ import java.util.List;
 import org.hammer.action.Acao;
 import org.hammer.action.EsperarPorItensNoDeposito;
 import org.hammer.producao.Produto;
+import org.hammer.producao.game.GoldenHammer;
 import org.junit.Test;
 
 public class VendedorTest {
 
     @Test
     public void testAcoes() {
+        GoldenHammer.init();
+
         // - Recebe um pedido do cliente e adiciona ele na lista de pedidos
         // - Espera o pedido estar dsponível e entrega para o cliente
 

@@ -13,12 +13,15 @@ import org.hammer.action.Depositar;
 import org.hammer.action.ProcessarMadeiraEmTabuas;
 import org.hammer.producao.Material;
 import org.hammer.producao.Pedidos;
+import org.hammer.producao.game.GoldenHammer;
 import org.junit.Test;
 
 public class LenhadorTest {
 
     @Test
     public void testAcoes() {
+        GoldenHammer.init();
+
         Lenhador lenhador = new Lenhador(0, 0, "Fulano");
 
         // - Espera por algum pedido de tábua

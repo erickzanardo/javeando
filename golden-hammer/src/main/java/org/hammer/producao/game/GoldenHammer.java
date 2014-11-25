@@ -110,7 +110,6 @@ public class GoldenHammer implements Game {
         if (vendedor.estaRecebendoPedidos()) {
             Produto produto = gerarProdutoAleatorio();
             vendedor.recebePedido(produto);
-            logMessage("Pedido de " + produto);
         }
 
         Set<Entry<Dwarf, List<Acao>>> entrySet = mapaAcoes.entrySet();
@@ -137,8 +136,8 @@ public class GoldenHammer implements Game {
     }
 
     public static void main(String[] args) {
-        Game game = new GoldenHammer();
-        new JavaGameLoop(game).run();
+        GoldenHammer.init();
+        new JavaGameLoop(GoldenHammer.instance()).run();
     }
 
     public void logMessage(String message) {
