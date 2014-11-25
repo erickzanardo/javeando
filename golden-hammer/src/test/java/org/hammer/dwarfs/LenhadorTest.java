@@ -19,7 +19,7 @@ public class LenhadorTest {
 
     @Test
     public void testAcoes() {
-        Lenhador lenhador = new Lenhador();
+        Lenhador lenhador = new Lenhador(0, 0, "Fulano");
 
         // - Espera por algum pedido de tábua
         List<Acao> retornaAcoes = lenhador.retornaAcoes();

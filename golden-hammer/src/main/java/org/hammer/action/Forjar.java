@@ -19,4 +19,9 @@ public class Forjar implements Acao {
     public void executar(long delta) {
     }
 
+    @Override
+    public boolean terminada() {
+        return false;
+    }
+
 }

@@ -7,4 +7,9 @@ public class ProcessarMadeiraEmTabuas implements Acao {
 
     }
 
+    @Override
+    public boolean terminada() {
+        return false;
+    }
+
 }

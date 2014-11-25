@@ -7,4 +7,9 @@ public class ColherMadeiraNaFloresta implements Acao {
 
     }
 
+    @Override
+    public boolean terminada() {
+        return false;
+    }
+
 }

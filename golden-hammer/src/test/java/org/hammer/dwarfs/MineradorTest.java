@@ -19,7 +19,7 @@ public class MineradorTest {
 
     @Test
     public void testeAcoes() {
-        Mineiro mineiro = new Mineiro();
+        Mineiro mineiro = new Mineiro(0, 0, "Fulano");
 
         List<Acao> retornaAcoes = mineiro.retornaAcoes();
         assertNull(retornaAcoes);

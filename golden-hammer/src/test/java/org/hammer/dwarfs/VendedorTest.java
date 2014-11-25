@@ -19,7 +19,7 @@ public class VendedorTest {
         // - Recebe um pedido do cliente e adiciona ele na lista de pedidos
         // - Espera o pedido estar dsponível e entrega para o cliente
 
-        Vendedor vendedor = new Vendedor();
+        Vendedor vendedor = new Vendedor(0, 0, "Fulano");
         List<Acao> retornaAcoes = vendedor.retornaAcoes();
         assertNull(retornaAcoes);
 

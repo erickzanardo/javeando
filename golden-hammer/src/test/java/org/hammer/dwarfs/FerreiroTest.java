@@ -8,9 +8,9 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 
 import org.hammer.action.Acao;
+import org.hammer.action.Depositar;
 import org.hammer.action.EsperarPorItensNoDeposito;
 import org.hammer.action.Forjar;
-import org.hammer.action.Depositar;
 import org.hammer.action.RecolherNoDeposito;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
@@ -21,7 +21,7 @@ public class FerreiroTest {
     @Test
     public void testAcoes() {
 
-        Ferreiro ferreiro = new Ferreiro();
+        Ferreiro ferreiro = new Ferreiro(0, 0, "Fulano");
 
         // Nada para fazer por enquanto
         List<Acao> retornaAcoes = ferreiro.retornaAcoes();

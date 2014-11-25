@@ -17,4 +17,9 @@ public class RecolherNoDeposito implements Acao {
         return itens;
     }
 
+    @Override
+    public boolean terminada() {
+        return false;
+    }
+
 }

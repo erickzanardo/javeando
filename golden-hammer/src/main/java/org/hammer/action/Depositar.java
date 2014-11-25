@@ -17,4 +17,9 @@ public class Depositar implements Acao {
         return item;
     }
 
+    @Override
+    public boolean terminada() {
+        return false;
+    }
+
 }

@@ -21,4 +21,9 @@ public class EsperarPorItensNoDeposito implements Acao {
         return item;
     }
 
+    @Override
+    public boolean terminada() {
+        return false;
+    }
+
 }
