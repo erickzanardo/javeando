@@ -5,6 +5,8 @@ Repositório com desafios em Java para treinar ensinamentos na linguagem e se di
 
 **Importante:** Caso seja a primeira vez que está fazendo algum desafio deste repositório, é necessário instalar o motor de jogo antes, para fazer isso basta entrar na pasta GameEngine e executar o comando mvn clean install.
 
+Lembre-se também, caso não tenha ainda, configurar a variável M2_REPO no seu eclipse, faça isso no eclipse indo no menu Window -> Preferences - Classpath Variables e adicione o caminho do seu repositório maven com uma variavel de nome M2_REPO. O repositório maven normalmente fica no diretório .m2 dentro do seu user, por exemplo: C:/Users/erick.zanardo/.m2/repository
+
 ### Panetteria
 
 Francesco é o dono de uma cafeteria perto de um polo de empresas de desenvolvimento de Software, mas seu estabelecimento está um tanto quanto desorganizado e precisamos ajuda-lo a atender seus clientes.
