@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hammer.action.Acao;
+import org.hammer.action.EntregrarProdutoAoCliente;
 import org.hammer.action.EsperarPorItensNoDeposito;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
-import org.hammer.producao.game.GoldenHammer;
 
 public class Vendedor extends Dwarf {
 
@@ -22,12 +22,12 @@ public class Vendedor extends Dwarf {
     public List<Acao> retornaAcoes() {
 
         if (produto != null) {
-            GoldenHammer.instance().logMessage("Requisitado " + produto);
             Pedidos.instance().requisitar(produto);
 
             List<Acao> ret = new ArrayList<Acao>();
             EsperarPorItensNoDeposito esperarPorItensNoDeposito = new EsperarPorItensNoDeposito(produto);
             ret.add(esperarPorItensNoDeposito);
+            ret.add(new EntregrarProdutoAoCliente());
             return ret;
         }
 

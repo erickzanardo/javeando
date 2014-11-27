@@ -8,6 +8,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 
 import org.hammer.action.Acao;
+import org.hammer.action.EntregrarProdutoAoCliente;
 import org.hammer.action.EsperarPorItensNoDeposito;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
@@ -36,10 +37,13 @@ public class VendedorTest {
         vendedor.recebePedido(Produto.ESPADA);
         retornaAcoes = vendedor.retornaAcoes();
         assertNotNull(retornaAcoes);
-        assertEquals(1, retornaAcoes.size());
+        assertEquals(2, retornaAcoes.size());
 
         Acao acao = retornaAcoes.get(0);
         assertTrue(acao instanceof EsperarPorItensNoDeposito);
         assertEquals(Produto.ESPADA, ((EsperarPorItensNoDeposito) acao).getItem());
+
+        acao = retornaAcoes.get(1);
+        assertTrue(acao instanceof EntregrarProdutoAoCliente);
     }
 }

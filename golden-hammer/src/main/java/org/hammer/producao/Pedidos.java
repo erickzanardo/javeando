@@ -3,6 +3,8 @@ package org.hammer.producao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hammer.producao.game.GoldenHammer;
+
 public class Pedidos {
     private List<Object> itens = new ArrayList<Object>();
 
@@ -19,6 +21,7 @@ public class Pedidos {
     }
 
     public void requisitar(Object objeto) {
+        GoldenHammer.instance().logMessage("Requisitado " + objeto);
         itens.add(objeto);
     }
 
