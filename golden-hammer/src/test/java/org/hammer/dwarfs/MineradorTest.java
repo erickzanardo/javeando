@@ -14,9 +14,15 @@ import org.hammer.action.Minerar;
 import org.hammer.producao.Material;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.game.GoldenHammer;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class MineradorTest {
+
+    @BeforeClass
+    public static void setup() {
+        Pedidos.instance().getPedidos().clear();
+    }
 
     @Test
     public void testeAcoes() {

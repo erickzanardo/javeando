@@ -14,9 +14,15 @@ import org.hammer.action.ProcessarMadeiraEmTabuas;
 import org.hammer.producao.Material;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.game.GoldenHammer;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class LenhadorTest {
+
+    @BeforeClass
+    public static void setup() {
+        Pedidos.instance().getPedidos().clear();
+    }
 
     @Test
     public void testAcoes() {
@@ -40,5 +46,6 @@ public class LenhadorTest {
 
         // - Leva a tábua para o deposito
         assertTrue(retornaAcoes.get(2) instanceof Depositar);
+        assertEquals(Material.TABUA, ((Depositar) retornaAcoes.get(2)).getItem());
     }
 }

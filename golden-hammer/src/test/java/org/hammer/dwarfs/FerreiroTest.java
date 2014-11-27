@@ -15,9 +15,15 @@ import org.hammer.action.RecolherNoDeposito;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
 import org.hammer.producao.game.GoldenHammer;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class FerreiroTest {
+
+    @BeforeClass
+    public static void setup() {
+        Pedidos.instance().getPedidos().clear();
+    }
 
     @Test
     public void testAcoes() {

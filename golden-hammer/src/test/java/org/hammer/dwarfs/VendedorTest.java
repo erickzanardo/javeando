@@ -9,11 +9,18 @@ import java.util.List;
 
 import org.hammer.action.Acao;
 import org.hammer.action.EsperarPorItensNoDeposito;
+import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
 import org.hammer.producao.game.GoldenHammer;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class VendedorTest {
+
+    @BeforeClass
+    public static void setup() {
+        Pedidos.instance().getPedidos().clear();
+    }
 
     @Test
     public void testAcoes() {
