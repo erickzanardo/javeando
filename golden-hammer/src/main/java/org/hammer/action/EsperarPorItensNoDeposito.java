@@ -1,36 +1,46 @@
 package org.hammer.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hammer.producao.Deposito;
 
 public class EsperarPorItensNoDeposito implements Acao {
 
-    private Object[] item;
-    private boolean contem;
+    private List<Object> itens = new ArrayList<>();
+    private List<Object> itensToRemove = new ArrayList<>();
 
     @Override
     public void executar(long delta) {
-        contem = true;
-        for (Object o : item) {
-            contem = contem && Deposito.instance().contem(o);
+        for (Object o : itens) {
+            if (Deposito.instance().contem(o)) {
+                itensToRemove.add(o);
+            }
+        }
+        if (itensToRemove.size() > 0) {
+            itens.removeAll(itensToRemove);
+            itensToRemove.clear();
         }
     }
 
-    public EsperarPorItensNoDeposito(Object... item) {
+    public EsperarPorItensNoDeposito(Object... itens) {
         super();
-        this.item = item;
+        for (Object object : itens) {
+            this.itens.add(object);
+        }
     }
 
     public Object getItem() {
-        return item[0];
+        return itens.get(0);
     }
 
-    public Object[] getItens() {
-        return item;
+    public List<Object> getItens() {
+        return itens;
     }
 
     @Override
     public boolean terminada() {
-        return contem;
+        return itens.size() == 0;
     }
 
 }

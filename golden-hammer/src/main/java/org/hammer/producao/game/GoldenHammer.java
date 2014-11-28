@@ -17,6 +17,7 @@ import org.hammer.dwarfs.Vendedor;
 import org.hammer.producao.Produto;
 import org.hammer.producao.game.stations.CabanaLenhador;
 import org.hammer.producao.game.stations.Floresta;
+import org.hammer.producao.game.stations.Loja;
 import org.hammer.producao.game.stations.Mina;
 import org.hammer.producao.game.stations.OficinaFerreiro;
 import org.hammer.producao.game.stations.OficinaMineiro;
@@ -70,7 +71,7 @@ public class GoldenHammer implements Game {
     @Override
     public void init(JavaGraphics graphics) {
         // Dwarfs
-        vendedor = new Vendedor(110, 150, "Larry");
+        vendedor = new Vendedor(150, 450, "Larry");
         mapaAcoes.put(vendedor, new ArrayList<Acao>());
 
         ferreiro = new Ferreiro(250, 450, "John");
@@ -109,15 +110,16 @@ public class GoldenHammer implements Game {
         oficinaMineiro.draw(graphics);
         mina.draw(graphics);
         taverna.draw(graphics);
+        Loja.instance().draw(graphics);
     }
 
     @Override
     public void update(long delta) {
 
         // Gerando um pedido aleatorio
-        if (vendedor.estaRecebendoPedidos()) {
+        // TODO mudar isto
+        if (Loja.instance().getCliente() == null) {
             Produto produto = gerarProdutoAleatorio();
-            vendedor.recebePedido(produto);
         }
 
         Set<Entry<Dwarf, List<Acao>>> entrySet = mapaAcoes.entrySet();

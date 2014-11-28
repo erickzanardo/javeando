@@ -13,8 +13,7 @@ import org.hammer.producao.Receitas;
 
 public class TesteUtils {
     public static void assertEsperaPorItensDaReceita(Object object, EsperarPorItensNoDeposito acao) {
-        Object[] itens = acao.getItens();
-        List<Object> listaDeItens = Arrays.asList(itens);
+        List<Object> listaDeItens = acao.getItens();
         List<Material> materiais = Receitas.instance().getMateriais(object);
         for (Material material : materiais) {
             assertTrue(listaDeItens.contains(material));
@@ -39,5 +38,5 @@ public class TesteUtils {
             assertTrue(listaItens.contains(material));
         }
     }
-    
+
 }

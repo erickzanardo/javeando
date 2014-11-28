@@ -25,8 +25,10 @@ Receitas Materias
 
 Ciclos de ações
 Vendedor
- - Recebe um pedido do cliente e adiciona ele na lista de pedidos
-   - Espera o pedido estar dsponível e entrega para o cliente
+ - Quando um cliente chega vai até a loja e recebe o pedido do cliente
+ - Espera o pedido estar disponível
+ - Vai ao depósito pegar o produto
+ - Entrega o produto para o cliente na loja
  
 Ferreiro
  - Espera por algum pedido de produto
