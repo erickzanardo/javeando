@@ -11,6 +11,7 @@ import org.hammer.action.Acao;
 import org.hammer.action.Depositar;
 import org.hammer.action.EsperarPorItensNoDeposito;
 import org.hammer.action.Forjar;
+import org.hammer.action.IrParaATaverna;
 import org.hammer.action.RecolherNoDeposito;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
@@ -39,7 +40,7 @@ public class FerreiroTest {
         Pedidos.instance().requisitar(Produto.ESPADA);
         retornaAcoes = ferreiro.retornaAcoes();
         assertNotNull(retornaAcoes);
-        assertEquals(4, retornaAcoes.size());
+        assertEquals(5, retornaAcoes.size());
 
         // - Faz o pedido dos materiais necessários para realizar o produto
         TesteUtils.assertItensDaReceitaRequisitados(Produto.ESPADA);
@@ -59,5 +60,8 @@ public class FerreiroTest {
         // - Leva o produto para o depósito e retorna para seu posto
         assertTrue(retornaAcoes.get(3) instanceof Depositar);
         assertEquals(Produto.ESPADA, ((Depositar) retornaAcoes.get(3)).getItem());
+
+        // Volta para a taverna
+        assertTrue(retornaAcoes.get(4) instanceof IrParaATaverna);
     }
 }

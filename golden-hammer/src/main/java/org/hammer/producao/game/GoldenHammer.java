@@ -17,9 +17,11 @@ import org.hammer.dwarfs.Vendedor;
 import org.hammer.producao.Produto;
 import org.hammer.producao.game.stations.CabanaLenhador;
 import org.hammer.producao.game.stations.Floresta;
+import org.hammer.producao.game.stations.Mina;
 import org.hammer.producao.game.stations.OficinaFerreiro;
 import org.hammer.producao.game.stations.OficinaMineiro;
 import org.hammer.producao.game.stations.Stockpile;
+import org.hammer.producao.game.stations.Taverna;
 import org.javaeando.game.Game;
 import org.javaeando.game.JavaGameLoop;
 import org.javaeando.game.JavaGraphics;
@@ -39,6 +41,8 @@ public class GoldenHammer implements Game {
     private CabanaLenhador cabanaLenhador;
     private OficinaFerreiro oficinaFerreiro;
     private OficinaMineiro oficinaMineiro;
+    private Mina mina;
+    private Taverna taverna;
 
     private Map<Dwarf, List<Acao>> mapaAcoes = new HashMap<>();
 
@@ -84,6 +88,8 @@ public class GoldenHammer implements Game {
         cabanaLenhador = new CabanaLenhador();
         oficinaFerreiro = new OficinaFerreiro();
         oficinaMineiro = new OficinaMineiro();
+        mina = new Mina();
+        taverna = new Taverna();
     }
 
     @Override
@@ -101,6 +107,8 @@ public class GoldenHammer implements Game {
         cabanaLenhador.draw(graphics);
         oficinaFerreiro.draw(graphics);
         oficinaMineiro.draw(graphics);
+        mina.draw(graphics);
+        taverna.draw(graphics);
     }
 
     @Override
@@ -142,5 +150,33 @@ public class GoldenHammer implements Game {
 
     public void logMessage(String message) {
         System.out.println(message);
+    }
+
+    public Floresta getFloresta() {
+        return floresta;
+    }
+
+    public Stockpile getDeposito() {
+        return deposito;
+    }
+
+    public CabanaLenhador getCabanaLenhador() {
+        return cabanaLenhador;
+    }
+
+    public OficinaFerreiro getOficinaFerreiro() {
+        return oficinaFerreiro;
+    }
+
+    public OficinaMineiro getOficinaMineiro() {
+        return oficinaMineiro;
+    }
+
+    public Mina getMina() {
+        return mina;
+    }
+
+    public Taverna getTaverna() {
+        return taverna;
     }
 }

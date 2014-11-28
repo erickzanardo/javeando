@@ -48,3 +48,5 @@ Ferreiro
     - Vai para a floresta e corta recolhe madeira
     - Volta para sua cabana e corta a madeira em tabuas
     - Leva a tábua para o deposito
+    
+  Todos os anões retornam para a taverna após terminarem o seu ciclo de trabalho

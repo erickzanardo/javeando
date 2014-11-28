@@ -9,7 +9,7 @@ public class EsperarPorItensNoDeposito implements Acao {
 
     @Override
     public void executar(long delta) {
-        contem = false;
+        contem = true;
         for (Object o : item) {
             contem = contem && Deposito.instance().contem(o);
         }

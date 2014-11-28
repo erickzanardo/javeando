@@ -6,6 +6,7 @@ import java.util.List;
 import org.hammer.action.Acao;
 import org.hammer.action.EntregrarProdutoAoCliente;
 import org.hammer.action.EsperarPorItensNoDeposito;
+import org.hammer.action.IrParaATaverna;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
 
@@ -28,6 +29,7 @@ public class Vendedor extends Dwarf {
             EsperarPorItensNoDeposito esperarPorItensNoDeposito = new EsperarPorItensNoDeposito(produto);
             ret.add(esperarPorItensNoDeposito);
             ret.add(new EntregrarProdutoAoCliente());
+            ret.add(new IrParaATaverna(this));
             return ret;
         }
 

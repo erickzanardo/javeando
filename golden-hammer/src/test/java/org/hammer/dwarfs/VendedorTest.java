@@ -10,6 +10,7 @@ import java.util.List;
 import org.hammer.action.Acao;
 import org.hammer.action.EntregrarProdutoAoCliente;
 import org.hammer.action.EsperarPorItensNoDeposito;
+import org.hammer.action.IrParaATaverna;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
 import org.hammer.producao.game.GoldenHammer;
@@ -37,7 +38,7 @@ public class VendedorTest {
         vendedor.recebePedido(Produto.ESPADA);
         retornaAcoes = vendedor.retornaAcoes();
         assertNotNull(retornaAcoes);
-        assertEquals(2, retornaAcoes.size());
+        assertEquals(3, retornaAcoes.size());
 
         Acao acao = retornaAcoes.get(0);
         assertTrue(acao instanceof EsperarPorItensNoDeposito);
@@ -45,5 +46,9 @@ public class VendedorTest {
 
         acao = retornaAcoes.get(1);
         assertTrue(acao instanceof EntregrarProdutoAoCliente);
+
+        // Volta para a taverna
+        assertTrue(retornaAcoes.get(2) instanceof IrParaATaverna);
+
     }
 }

@@ -2,14 +2,15 @@ package org.hammer.producao.game.stations;
 
 import org.javaeando.game.JavaGraphics;
 
-public class Stockpile extends EstacaoDeTrabalho {
-    public Stockpile() {
-        x = 250;
-        y = 40;
+public class Taverna extends EstacaoDeTrabalho {
+    public Taverna() {
+        x = 150;
+        y = 400;
     }
 
+    @Override
     public void draw(JavaGraphics graphics) {
-        graphics.setColor(0x828278);
+        graphics.setColor(0xFFFF00);
         graphics.fillRect(x, y, 110, 40);
     }
 }

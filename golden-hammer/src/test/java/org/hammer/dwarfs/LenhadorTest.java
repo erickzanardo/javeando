@@ -10,6 +10,7 @@ import java.util.List;
 import org.hammer.action.Acao;
 import org.hammer.action.ColherMadeiraNaFloresta;
 import org.hammer.action.Depositar;
+import org.hammer.action.IrParaATaverna;
 import org.hammer.action.ProcessarMadeiraEmTabuas;
 import org.hammer.producao.Material;
 import org.hammer.producao.Pedidos;
@@ -38,7 +39,7 @@ public class LenhadorTest {
         // - Vai para a floresta e corta recolhe madeira
         retornaAcoes = lenhador.retornaAcoes();
         assertNotNull(retornaAcoes);
-        assertEquals(3, retornaAcoes.size());
+        assertEquals(4, retornaAcoes.size());
         assertTrue(retornaAcoes.get(0) instanceof ColherMadeiraNaFloresta);
 
         // - Volta para sua cabana e corta a madeira em tabuas
@@ -47,5 +48,9 @@ public class LenhadorTest {
         // - Leva a tábua para o deposito
         assertTrue(retornaAcoes.get(2) instanceof Depositar);
         assertEquals(Material.TABUA, ((Depositar) retornaAcoes.get(2)).getItem());
+
+        // Volta para a taverna
+        assertTrue(retornaAcoes.get(3) instanceof IrParaATaverna);
+
     }
 }

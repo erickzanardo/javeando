@@ -7,6 +7,7 @@ import org.hammer.action.Acao;
 import org.hammer.action.Depositar;
 import org.hammer.action.EsperarPorItensNoDeposito;
 import org.hammer.action.Forjar;
+import org.hammer.action.IrParaATaverna;
 import org.hammer.action.RecolherNoDeposito;
 import org.hammer.producao.Material;
 import org.hammer.producao.Pedidos;
@@ -36,14 +37,16 @@ public class Ferreiro extends Dwarf {
                 EsperarPorItensNoDeposito esperarPorItensNoDeposito = new EsperarPorItensNoDeposito(materiasArray);
                 acoes.add(esperarPorItensNoDeposito);
 
-                RecolherNoDeposito recolherNoDeposito = new RecolherNoDeposito(materiasArray);
+                RecolherNoDeposito recolherNoDeposito = new RecolherNoDeposito(this, materiasArray);
                 acoes.add(recolherNoDeposito);
 
-                Forjar forjar = new Forjar((Produto) object);
+                Forjar forjar = new Forjar((Produto) object, this);
                 acoes.add(forjar);
 
-                Depositar depositar = new Depositar(object);
+                Depositar depositar = new Depositar(object, this);
                 acoes.add(depositar);
+
+                acoes.add(new IrParaATaverna(this));
 
                 return acoes;
             }

@@ -17,8 +17,16 @@ public class Deposito {
         }
         return instance;
     }
-    
+
+    public void adicionar(Object object) {
+        itens.add(object);
+    }
+
     public boolean contem(Object object) {
         return itens.contains(object);
+    }
+
+    public boolean retirar(Object object) {
+        return itens.remove(object);
     }
 }
