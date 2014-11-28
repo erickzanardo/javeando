@@ -8,6 +8,7 @@ import org.hammer.action.EntregrarProdutoAoCliente;
 import org.hammer.action.EsperarPorItensNoDeposito;
 import org.hammer.action.IrParaALoja;
 import org.hammer.action.IrParaATaverna;
+import org.hammer.action.RecolherNoDeposito;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
 import org.hammer.producao.game.stations.Loja;
@@ -32,7 +33,8 @@ public class Vendedor extends Dwarf {
             ret.add(new IrParaALoja(this));
             EsperarPorItensNoDeposito esperarPorItensNoDeposito = new EsperarPorItensNoDeposito(produto);
             ret.add(esperarPorItensNoDeposito);
-            ret.add(new EntregrarProdutoAoCliente());
+            ret.add(new RecolherNoDeposito(this, produto));
+            ret.add(new EntregrarProdutoAoCliente(this));
             ret.add(new IrParaATaverna(this));
             return ret;
         }

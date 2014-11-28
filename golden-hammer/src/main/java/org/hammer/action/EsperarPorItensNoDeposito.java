@@ -8,19 +8,27 @@ import org.hammer.producao.Deposito;
 public class EsperarPorItensNoDeposito implements Acao {
 
     private List<Object> itens = new ArrayList<>();
-    private List<Object> itensToRemove = new ArrayList<>();
+    private List<Object> verify = new ArrayList<>();
+    private int count = 0;
+    private boolean terminou;
 
     @Override
     public void executar(long delta) {
+        count = 0;
+        Deposito instance = Deposito.instance();
+        verify.addAll(instance.itens());
+
         for (Object o : itens) {
-            if (Deposito.instance().contem(o)) {
-                itensToRemove.add(o);
+            if (verify.contains(o)) {
+                count++;
+                verify.remove(o);
             }
         }
-        if (itensToRemove.size() > 0) {
-            itens.removeAll(itensToRemove);
-            itensToRemove.clear();
+
+        if (count == itens.size()) {
+            terminou = true;
         }
+        verify.clear();
     }
 
     public EsperarPorItensNoDeposito(Object... itens) {
@@ -40,7 +48,7 @@ public class EsperarPorItensNoDeposito implements Acao {
 
     @Override
     public boolean terminada() {
-        return itens.size() == 0;
+        return terminou;
     }
 
 }

@@ -1,6 +1,8 @@
 package org.cafe.domain.produto;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Menu {
@@ -15,7 +17,22 @@ public class Menu {
     }
 
     public List<Produto> listarProdutosPorTipo(TipoProduto tipoProduto) {
-        // TODO
-        return produtos;
+
+        List<Produto> ret = new ArrayList<>();
+        for (Produto p : produtos) {
+            if (p.getTipoProduto().equals(tipoProduto)) {
+                ret.add(p);
+            }
+        }
+
+        Collections.sort(ret, new Comparator<Produto>() {
+
+            @Override
+            public int compare(Produto arg0, Produto arg1) {
+                return arg0.getNome().compareTo(arg1.getNome());
+            }
+        });
+
+        return ret;
     }
 }

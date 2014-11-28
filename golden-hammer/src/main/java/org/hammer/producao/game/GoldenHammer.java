@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.Set;
 
 import org.hammer.action.Acao;
+import org.hammer.dwarfs.Cliente;
 import org.hammer.dwarfs.Dwarf;
 import org.hammer.dwarfs.Ferreiro;
 import org.hammer.dwarfs.Lenhador;
@@ -21,6 +22,7 @@ import org.hammer.producao.game.stations.Loja;
 import org.hammer.producao.game.stations.Mina;
 import org.hammer.producao.game.stations.OficinaFerreiro;
 import org.hammer.producao.game.stations.OficinaMineiro;
+import org.hammer.producao.game.stations.PontoDeSaida;
 import org.hammer.producao.game.stations.Stockpile;
 import org.hammer.producao.game.stations.Taverna;
 import org.javaeando.game.Game;
@@ -44,6 +46,8 @@ public class GoldenHammer implements Game {
     private OficinaMineiro oficinaMineiro;
     private Mina mina;
     private Taverna taverna;
+    private PontoDeSaida pontoDeSaida;
+    private Dwarf clienteASerRemovido;
 
     private Map<Dwarf, List<Acao>> mapaAcoes = new HashMap<>();
 
@@ -91,6 +95,7 @@ public class GoldenHammer implements Game {
         oficinaMineiro = new OficinaMineiro();
         mina = new Mina();
         taverna = new Taverna();
+        pontoDeSaida = new PontoDeSaida();
     }
 
     @Override
@@ -98,6 +103,10 @@ public class GoldenHammer implements Game {
         graphics.setColor(0x000000);
         graphics.fillRect(0, 0, 800, 600);
 
+        Cliente cliente = Loja.instance().getCliente();
+        if (cliente != null) {
+            cliente.draw(graphics);
+        }
         vendedor.draw(graphics);
         ferreiro.draw(graphics);
         mineiro.draw(graphics);
@@ -116,10 +125,18 @@ public class GoldenHammer implements Game {
     @Override
     public void update(long delta) {
 
-        // Gerando um pedido aleatorio
-        // TODO mudar isto
+        if (clienteASerRemovido != null) {
+            mapaAcoes.remove(clienteASerRemovido);
+            Loja.instance().setCliente(null);
+            clienteASerRemovido = null;
+        }
+
         if (Loja.instance().getCliente() == null) {
             Produto produto = gerarProdutoAleatorio();
+            Cliente cliente = new Cliente(0, 0, "Fulano", produto);
+            Loja.instance().setCliente(cliente);
+            mapaAcoes.put(cliente, new ArrayList<Acao>());
+            logMessage(cliente.getNome() + " chegou na loja ");
         }
 
         Set<Entry<Dwarf, List<Acao>>> entrySet = mapaAcoes.entrySet();
@@ -180,5 +197,13 @@ public class GoldenHammer implements Game {
 
     public Taverna getTaverna() {
         return taverna;
+    }
+
+    public PontoDeSaida getPontoDeSaida() {
+        return pontoDeSaida;
+    }
+
+    public void removerClienteDaLoja(Dwarf cliente) {
+        clienteASerRemovido = cliente;
     }
 }

@@ -1,8 +1,12 @@
 package org.hammer.dwarfs;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hammer.action.Acao;
+import org.hammer.action.EsperarPorProdutoNoInventario;
+import org.hammer.action.IrEmboraDaLoja;
+import org.hammer.action.IrParaALoja;
 import org.hammer.producao.Produto;
 
 public class Cliente extends Dwarf {
@@ -16,7 +20,13 @@ public class Cliente extends Dwarf {
 
     @Override
     public List<Acao> retornaAcoes() {
-        return null;
+        List<Acao> acoes = new ArrayList<>();
+
+        acoes.add(new IrParaALoja(this));
+        acoes.add(new EsperarPorProdutoNoInventario(this, produto));
+        acoes.add(new IrEmboraDaLoja(this));
+
+        return acoes;
     }
 
     public Produto getProduto() {

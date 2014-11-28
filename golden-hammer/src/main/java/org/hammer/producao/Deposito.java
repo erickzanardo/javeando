@@ -29,4 +29,8 @@ public class Deposito {
     public boolean retirar(Object object) {
         return itens.remove(object);
     }
+    
+    public List<Object> itens() {
+        return itens;
+    }
 }

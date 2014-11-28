@@ -12,6 +12,7 @@ import org.hammer.action.EntregrarProdutoAoCliente;
 import org.hammer.action.EsperarPorItensNoDeposito;
 import org.hammer.action.IrParaALoja;
 import org.hammer.action.IrParaATaverna;
+import org.hammer.action.RecolherNoDeposito;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
 import org.hammer.producao.game.GoldenHammer;
@@ -44,7 +45,7 @@ public class VendedorTest {
         assertTrue(Pedidos.instance().getPedidos().contains(Produto.ESPADA));
 
         assertNotNull(retornaAcoes);
-        assertEquals(4, retornaAcoes.size());
+        assertEquals(5, retornaAcoes.size());
 
         Acao acao = retornaAcoes.get(0);
         assertTrue(acao instanceof IrParaALoja);
@@ -54,10 +55,14 @@ public class VendedorTest {
         assertEquals(Produto.ESPADA, ((EsperarPorItensNoDeposito) acao).getItem());
 
         acao = retornaAcoes.get(2);
+        assertTrue(acao instanceof RecolherNoDeposito);
+        assertEquals(Produto.ESPADA, ((RecolherNoDeposito) retornaAcoes.get(2)).getItens()[0]);
+
+        acao = retornaAcoes.get(3);
         assertTrue(acao instanceof EntregrarProdutoAoCliente);
 
         // Volta para a taverna
-        assertTrue(retornaAcoes.get(3) instanceof IrParaATaverna);
+        assertTrue(retornaAcoes.get(4) instanceof IrParaATaverna);
 
     }
 }
