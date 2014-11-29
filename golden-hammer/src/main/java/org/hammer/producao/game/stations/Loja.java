@@ -1,16 +1,27 @@
 package org.hammer.producao.game.stations;
 
 import org.hammer.dwarfs.Cliente;
+import org.hammer.producao.game.utils.Assets;
 import org.javaeando.game.JavaGraphics;
+import org.javaeando.game.JavaImage;
 
 public class Loja extends EstacaoDeTrabalho {
 
     private static Loja instance;
     private Cliente cliente;
+    private JavaImage image;
+
+    private float drawX, drawY;
 
     private Loja() {
         x = 30;
         y = 200;
+
+        drawX = x - 20;
+        drawY = y - 20;
+
+        image = Assets.instance().getStore();
+
     }
 
     public static Loja instance() {
@@ -22,8 +33,7 @@ public class Loja extends EstacaoDeTrabalho {
 
     @Override
     public void draw(JavaGraphics graphics) {
-        graphics.setColor(0xDF7401);
-        graphics.fillRect(x, y, 100, 60);
+        graphics.drawImage(image, drawX, drawY);
     }
 
     public Cliente getCliente() {

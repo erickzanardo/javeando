@@ -10,11 +10,14 @@ import org.hammer.action.IrParaATaverna;
 import org.hammer.action.Minerar;
 import org.hammer.producao.Material;
 import org.hammer.producao.Pedidos;
+import org.hammer.producao.game.utils.Assets;
 
 public class Mineiro extends Dwarf {
 
     public Mineiro(float x, float y, String nome) {
         super(x, y, nome);
+        setSpriteSheetLeft(Assets.instance().getMinerLeft());
+        setSpriteSheetRight(Assets.instance().getMinerRight());
     }
 
     @Override

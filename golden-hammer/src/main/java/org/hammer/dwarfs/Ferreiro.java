@@ -13,11 +13,14 @@ import org.hammer.producao.Material;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
 import org.hammer.producao.Receitas;
+import org.hammer.producao.game.utils.Assets;
 
 public class Ferreiro extends Dwarf {
 
     public Ferreiro(float x, float y, String nome) {
         super(x, y, nome);
+        setSpriteSheetLeft(Assets.instance().getBlacksmithLeft());
+        setSpriteSheetRight(Assets.instance().getBlacksmithRight());
     }
 
     @Override

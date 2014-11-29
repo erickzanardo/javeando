@@ -35,6 +35,7 @@ public class ProcessarMadeiraEmTabuas implements Acao {
         if (indoParaCabana) {
             if (MovimentoUtils.moverAnaoParaEstacao(lenhador, instance.getCabanaLenhador(), delta)) {
                 indoParaCabana = false;
+                instance.getCabanaLenhador().animate();
                 instance.logMessage(lenhador.getNome() + " chegou em sua cabana ");
             }
         } else if (contadorProcesso >= 0) {

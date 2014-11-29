@@ -30,6 +30,7 @@ public class Forjar implements Acao {
             if (MovimentoUtils.moverAnaoParaEstacao(dwarf, instance.getOficinaFerreiro(), delta)) {
                 instance.logMessage(dwarf.getNome() + " chegou na forja ");
                 indoParaAForja = false;
+                instance.getOficinaFerreiro().animate();
             }
         } else if (contadorForjando >= 0) {
             contadorForjando -= delta;

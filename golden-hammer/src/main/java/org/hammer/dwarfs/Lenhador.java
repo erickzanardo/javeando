@@ -10,11 +10,14 @@ import org.hammer.action.IrParaATaverna;
 import org.hammer.action.ProcessarMadeiraEmTabuas;
 import org.hammer.producao.Material;
 import org.hammer.producao.Pedidos;
+import org.hammer.producao.game.utils.Assets;
 
 public class Lenhador extends Dwarf {
 
     public Lenhador(float x, float y, String nome) {
         super(x, y, nome);
+        setSpriteSheetLeft(Assets.instance().getWoodcutterLeft());
+        setSpriteSheetRight(Assets.instance().getWoodcutterRight());
     }
 
     @Override

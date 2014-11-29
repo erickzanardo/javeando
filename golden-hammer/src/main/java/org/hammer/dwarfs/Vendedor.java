@@ -12,6 +12,7 @@ import org.hammer.action.RecolherNoDeposito;
 import org.hammer.producao.Pedidos;
 import org.hammer.producao.Produto;
 import org.hammer.producao.game.stations.Loja;
+import org.hammer.producao.game.utils.Assets;
 
 public class Vendedor extends Dwarf {
 
@@ -19,6 +20,8 @@ public class Vendedor extends Dwarf {
 
     public Vendedor(float x, float y, String nome) {
         super(x, y, nome);
+        setSpriteSheetLeft(Assets.instance().getSalesmanLeft());
+        setSpriteSheetRight(Assets.instance().getSalesmanRight());
     }
 
     @Override

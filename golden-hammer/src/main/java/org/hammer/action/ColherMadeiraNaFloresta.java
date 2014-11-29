@@ -26,6 +26,7 @@ public class ColherMadeiraNaFloresta implements Acao {
             if (MovimentoUtils.moverAnaoParaEstacao(lenhador, instance.getFloresta(), delta)) {
                 instance.logMessage(lenhador.getNome() + " chegou na floresta ");
                 indoParaAFloresta = false;
+                instance.getFloresta().animate();
             }
         } else if (corteContador >= 0) {
             corteContador -= delta;

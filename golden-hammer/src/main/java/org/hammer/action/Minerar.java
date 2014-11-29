@@ -33,6 +33,7 @@ public class Minerar implements Acao {
                 instance.logMessage(mineiro.getNome() + " chegou na mina ");
                 indoParaAMina = false;
                 minerando = true;
+                instance.getMina().animate();
             }
         } else if (minerando) {
             contadorMinerando -= delta;
@@ -48,6 +49,7 @@ public class Minerar implements Acao {
             OficinaMineiro oficina = instance.getOficinaMineiro();
 
             if (MovimentoUtils.moverAnaoParaEstacao(mineiro, oficina, delta)) {
+                instance.getOficinaMineiro().animate();
                 indoParaAEstacao = false;
                 terminou = true;
                 instance.logMessage(mineiro.getNome() + " chegou em sua oficina ");

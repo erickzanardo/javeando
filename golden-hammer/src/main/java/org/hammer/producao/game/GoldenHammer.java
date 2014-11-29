@@ -17,6 +17,7 @@ import org.hammer.dwarfs.Mineiro;
 import org.hammer.dwarfs.Vendedor;
 import org.hammer.producao.Produto;
 import org.hammer.producao.game.stations.CabanaLenhador;
+import org.hammer.producao.game.stations.EstacaoDeTrabalho;
 import org.hammer.producao.game.stations.Floresta;
 import org.hammer.producao.game.stations.Loja;
 import org.hammer.producao.game.stations.Mina;
@@ -50,6 +51,7 @@ public class GoldenHammer implements Game {
     private Dwarf clienteASerRemovido;
 
     private Map<Dwarf, List<Acao>> mapaAcoes = new HashMap<>();
+    private List<EstacaoDeTrabalho> estacoes = new ArrayList<>();
 
     private GoldenHammer() {
     }
@@ -89,18 +91,27 @@ public class GoldenHammer implements Game {
 
         // Estacoes
         floresta = new Floresta();
+        estacoes.add(floresta);
         deposito = new Stockpile();
+        estacoes.add(deposito);
         cabanaLenhador = new CabanaLenhador();
+        estacoes.add(cabanaLenhador);
         oficinaFerreiro = new OficinaFerreiro();
+        estacoes.add(oficinaFerreiro);
         oficinaMineiro = new OficinaMineiro();
+        estacoes.add(oficinaMineiro);
         mina = new Mina();
+        estacoes.add(mina);
         taverna = new Taverna();
+        estacoes.add(taverna);
         pontoDeSaida = new PontoDeSaida();
+        estacoes.add(pontoDeSaida);
+        estacoes.add(Loja.instance());
     }
 
     @Override
     public void render(JavaGraphics graphics) {
-        graphics.setColor(0x000000);
+        graphics.setColor(0x5FAD62);
         graphics.fillRect(0, 0, 800, 600);
 
         Cliente cliente = Loja.instance().getCliente();
@@ -112,18 +123,18 @@ public class GoldenHammer implements Game {
         mineiro.draw(graphics);
         lenhador.draw(graphics);
 
-        floresta.draw(graphics);
-        deposito.draw(graphics);
-        cabanaLenhador.draw(graphics);
-        oficinaFerreiro.draw(graphics);
-        oficinaMineiro.draw(graphics);
-        mina.draw(graphics);
-        taverna.draw(graphics);
-        Loja.instance().draw(graphics);
+        for (EstacaoDeTrabalho estacaoDeTrabalho : estacoes) {
+            estacaoDeTrabalho.draw(graphics);
+        }
+
     }
 
     @Override
     public void update(long delta) {
+
+        for (EstacaoDeTrabalho estacaoDeTrabalho : estacoes) {
+            estacaoDeTrabalho.update(delta);
+        }
 
         if (clienteASerRemovido != null) {
             mapaAcoes.remove(clienteASerRemovido);
@@ -141,6 +152,7 @@ public class GoldenHammer implements Game {
 
         Set<Entry<Dwarf, List<Acao>>> entrySet = mapaAcoes.entrySet();
         for (Entry<Dwarf, List<Acao>> entry : entrySet) {
+            entry.getKey().update(delta);
             List<Acao> acoes = entry.getValue();
             if (acoes.size() > 0) {
                 Acao acao = acoes.get(0);

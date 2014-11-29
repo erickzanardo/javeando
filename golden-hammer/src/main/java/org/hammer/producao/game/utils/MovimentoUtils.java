@@ -17,16 +17,20 @@ public class MovimentoUtils {
         float dwarfY = dwarf.getY();
 
         if (Math.round(dwarfX) < x) {
+            dwarf.setRight(true);
             dwarf.setX(dwarfX + DWARF_SPEED * delta);
         } else if (Math.round(dwarfX) > x) {
+            dwarf.setRight(false);
             dwarf.setX(dwarfX - DWARF_SPEED * delta);
         } else if (Math.round(dwarfY) > y) {
             dwarf.setY(dwarfY - DWARF_SPEED * delta);
         } else if (Math.round(dwarfY) < y) {
             dwarf.setY(dwarfY + DWARF_SPEED * delta);
         } else {
+            dwarf.setMoving(false);
             return true;
         }
+        dwarf.setMoving(true);
         return false;
     }
 }

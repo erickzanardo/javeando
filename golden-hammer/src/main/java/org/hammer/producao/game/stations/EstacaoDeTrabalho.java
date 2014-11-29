@@ -14,4 +14,6 @@ public abstract class EstacaoDeTrabalho {
     }
     
     public abstract void draw(JavaGraphics graphics);
+    public void animate(){};
+    public void update(long delta) {};
 }
