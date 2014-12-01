@@ -77,16 +77,16 @@ public class GoldenHammer implements Game {
     @Override
     public void init(JavaGraphics graphics) {
         // Dwarfs
-        vendedor = new Vendedor(150, 450, "Larry");
+        vendedor = new Vendedor(250, 450, "Larry");
         mapaAcoes.put(vendedor, new ArrayList<Acao>());
 
         ferreiro = new Ferreiro(250, 450, "John");
         mapaAcoes.put(ferreiro, new ArrayList<Acao>());
 
-        mineiro = new Mineiro(350, 450, "Charles");
+        mineiro = new Mineiro(250, 450, "Charles");
         mapaAcoes.put(mineiro, new ArrayList<Acao>());
 
-        lenhador = new Lenhador(450, 450, "Rudolf");
+        lenhador = new Lenhador(250, 450, "Rudolf");
         mapaAcoes.put(lenhador, new ArrayList<Acao>());
 
         // Estacoes

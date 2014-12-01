@@ -27,8 +27,8 @@ public class Assets {
     private JavaSpriteSheet mina;
 
     private Assets() {
-        oficinaFerreiro = JavaAssetLoader.instance().loadSpriteSheet("blacksmith_house.png", 2, 1, 2);
-        oficinaMineiro = JavaAssetLoader.instance().loadSpriteSheet("miner_house.png", 2, 1, 2);
+        oficinaFerreiro = JavaAssetLoader.instance().loadSpriteSheet("blacksmith_house.png", 2, 1, 3);
+        oficinaMineiro = JavaAssetLoader.instance().loadSpriteSheet("miner_house.png", 2, 1, 3);
         mina = JavaAssetLoader.instance().loadSpriteSheet("mine.png", 2, 1, 2);
         stockpile = JavaAssetLoader.instance().loadImage("stockpile.png");
         store = JavaAssetLoader.instance().loadImage("store.png");
